@@ -1,4 +1,4 @@
-import { Comic } from "./Comic";
+import { Comic } from "./comic.model";
 
 export interface CatalogState{
   comics: Comic[];
