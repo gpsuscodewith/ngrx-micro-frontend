@@ -12,6 +12,9 @@ import { CommunityListComponentComponent } from './community-list-component/comm
   imports: [
     CommonModule,
     StoreModule.forFeature('community', reducer)
+  ],
+  exports: [
+    CommunityListComponentComponent
   ]
 })
 export class CommunityModule { }

@@ -13,6 +13,9 @@ import { CatalogListComponentComponent } from './catalog-list-component/catalog-
   imports: [
     CommonModule,
     StoreModule.forFeature('catalog', reducer)
+  ],
+  exports: [
+    CatalogListComponentComponent
   ]
 })
 export class CatalogModule { }
