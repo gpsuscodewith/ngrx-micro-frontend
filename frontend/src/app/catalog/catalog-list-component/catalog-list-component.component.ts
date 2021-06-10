@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { CatalogState } from '../store/catalog.state';
 
 @Component({
   selector: 'app-catalog-list-component',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CatalogListComponentComponent implements OnInit {
 
-  constructor() { }
+  constructor(private store: Store<CatalogState>) { }
 
   ngOnInit(): void {
   }
