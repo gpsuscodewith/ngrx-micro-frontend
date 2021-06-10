@@ -38,4 +38,28 @@ export const MOCKCOMICS: Comic[] = [
     author: "Nancy Brew",
     series: "Dr IQ"
   },
+  {
+    issueNumber: "H1",
+    title: "Texas Tornado",
+    author: "Bill Harding",
+    series: "Tornado Series"
+  },
+  {
+    issueNumber: "H2",
+    title: "F5 Touchdown",
+    author: "Bill Harding",
+    series: "Tornado Series"
+  },
+  {
+    issueNumber: "G1",
+    title: "When Rubber Meets The Road",
+    author: "Patrick Ganine",
+    series: "RubberMan"
+  },
+  {
+    issueNumber: "G2",
+    title: "Who Is Hevea?",
+    author: "Patrick Ganine",
+    series: "RubberMan"
+  },
 ];
