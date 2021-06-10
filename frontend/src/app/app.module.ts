@@ -7,10 +7,16 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { CatalogModule } from './catalog/catalog.module';
 import { CommunityModule } from './community/community.module';
+import { ShellComponent } from './home/shell/shell.component';
+import { MenuComponent } from './home/menu/menu.component';
+import { WelcomeComponent } from './home/welcome/welcome.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ShellComponent,
+    MenuComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,
