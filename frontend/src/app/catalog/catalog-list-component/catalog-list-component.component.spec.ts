@@ -23,3 +23,5 @@ describe('CatalogListComponentComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+
+
