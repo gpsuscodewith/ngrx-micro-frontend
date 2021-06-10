@@ -32,4 +32,10 @@ export const MOCKCOMICS: Comic[] = [
     author: "Nancy Brew",
     series: "Dr IQ"
   },
+  {
+    issueNumber: "B2",
+    title: "A Riddle & A Dare",
+    author: "Nancy Brew",
+    series: "Dr IQ"
+  },
 ];

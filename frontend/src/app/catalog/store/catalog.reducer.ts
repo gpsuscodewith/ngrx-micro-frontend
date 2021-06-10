@@ -1,13 +1,18 @@
-import { CatalogActionTypes, CatalogActions } from './catalog.actions';
+import { createReducer, on } from '@ngrx/store';
+import { getComics, setComics } from './catalog.actions';
 import { CatalogState, initialState } from './catalog.state';
 
-export function reducer(state = initialState, action: CatalogActions): CatalogState {
-  switch(action.type) {
-    case CatalogActionTypes.SetComics:
-      return { ...state, comics: action.payload }
-      break;
-    default:
-      return state;
-      break;
-  }
-}
+export const catalogReducer = createReducer<CatalogState>(
+  initialState,
+  on(getComics, (state): CatalogState => {
+    return {
+      ...state,
+    }
+  }),
+  on(setComics, (state, action): CatalogState => {
+    return {
+      ...state,
+      comics: action.comics
+    }
+  })
+);
