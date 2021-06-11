@@ -11,7 +11,7 @@ import { userReducer } from './store/user.reducer';
     ],
     imports: [
       CommonModule,
-      StoreModule.forFeature('community', userReducer)
+      StoreModule.forFeature('user', userReducer)
     ],
     exports: [
       LoginComponent
