@@ -4,6 +4,7 @@ import { CatalogListComponentComponent } from './catalog/catalog-list-component/
 import { CommunityListComponentComponent } from './community/community-list-component/community-list-component.component';
 import { ShellComponent } from './home/shell/shell.component';
 import { WelcomeComponent } from './home/welcome/welcome.component';
+import { LoginComponent } from './user/login-component/login.component'
 
 const routes: Routes = [
   {
@@ -13,6 +14,7 @@ const routes: Routes = [
       {path: 'welcome', component: WelcomeComponent},
       {path: 'catalog', component: CatalogListComponentComponent},
       {path: 'community', component: CommunityListComponentComponent},
+      {path: 'login', component: LoginComponent},
       {path: '', redirectTo: 'welcome', pathMatch: 'full'},
     ]
   }

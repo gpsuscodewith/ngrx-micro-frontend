@@ -6,10 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent implements OnInit {
-
-  constructor() { }
+  isLoggedIn:boolean;
+  constructor() { 
+    this.isLoggedIn = false;
+  }
 
   ngOnInit(): void {
+  }
+  
+  logOut(): void {
+    this.isLoggedIn = false;
   }
 
 }
