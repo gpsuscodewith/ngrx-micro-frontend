@@ -24,9 +24,7 @@ import { WelcomeComponent } from './home/welcome/welcome.component';
     AppRoutingModule,
     CatalogModule,
     CommunityModule,
-    UserModule,
-    StoreModule.forRoot({}, {}),
-    EffectsModule.forRoot([])
+    UserModule
   ],
   providers: [],
   bootstrap: [AppComponent]
