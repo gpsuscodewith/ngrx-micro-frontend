@@ -1,15 +1,22 @@
 import { createReducer, on } from '@ngrx/store';
-import { getComics, setComics } from './catalog.actions';
-import { CatalogState, initialState } from './catalog.state';
+import { loadComics, createComics, loadComicsSuccess } from './actions/catalog.actions';
+import { CatalogState, initialState } from './state/catalog.state';
 
 export const catalogReducer = createReducer<CatalogState>(
   initialState,
-  on(getComics, (state): CatalogState => {
+  on(loadComics, (state): CatalogState => {
+    console.log('Inside reducer with loadComics and the state is ' + state);
     return {
       ...state,
     }
   }),
-  on(setComics, (state, action): CatalogState => {
+  on(loadComicsSuccess, (state, action): CatalogState => {
+    return {
+      ...state,
+      comics: action.comics,
+    }
+  }),
+  on(createComics, (state, action): CatalogState => {
     return {
       ...state,
       comics: action.comics

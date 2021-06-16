@@ -1,1 +1,15 @@
-catalog-list-component works!
+<div class="card">
+  <div class="card-header">
+    Catalog
+  </div>
+  <div class="card-body"
+       *ngIf="comics$">
+       <div>This is displaying</div>
+    <div class="list-group">
+      <button class="list-group-item list-group-item-action rounded-0"
+              *ngFor="let comic of comics$ | async"
+              (click)="comicSelected(comic)">{{comic.issueNumber}}
+      </button>
+    </div>
+  </div>
+</div>
