@@ -22,4 +22,18 @@ export class CatalogEffects {
         )
       );
   });
+
+  searchComics$ = createEffect(() => {
+    console.log('Inside the effects call to loadComics$');
+    return this.actions$
+      .pipe(
+        ofType(CatalogActions.searchComics),
+        mergeMap(action => this.catalogService.getSearchedComics(action.searchQuery)
+          .pipe(
+            map(comics => CatalogActions.searchComicsSuccess({comics})),
+            catchError(error => of(CatalogActions.searchComicsFailure({error})))
+          )
+        )
+      )
+  });
 }

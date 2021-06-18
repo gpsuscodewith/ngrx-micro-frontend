@@ -12,6 +12,15 @@ export const getComics = createSelector(
   }
 );
 
+export const getSearchResults = createSelector(
+  getCatalogFeatureState,
+  state => {
+    console.log('Inside *getSearchResults* selector with a value of ' + state.currentComicIssueNumber);
+    console.log('Return an array of comics with a length of ' + state.comics.length);
+    return state.comics;
+  }
+);
+
 export const getCurrentComicIssueNumber = createSelector(
   getCatalogFeatureState,
   state => state.currentComicIssueNumber

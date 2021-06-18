@@ -22,6 +22,17 @@ export class CatalogService {
     );
   }
 
+  getSearchedComics(searchQuery: string): Observable<Comic[]> {
+    // First one is includes (doesn't care about order)
+    // Second one is startsWith (cares about order)
+    //const comics = of(MOCKCOMICS.filter(comic => comic.title.toLowerCase().includes(searchQuery.toLowerCase()) || comic.series.toLowerCase().includes(searchQuery.toLowerCase())));
+    const comics = of(MOCKCOMICS.filter(comic => comic.title.toLowerCase().startsWith(searchQuery.toLowerCase()) || comic.series.toLowerCase().startsWith(searchQuery.toLowerCase())));
+    return comics.pipe(
+      tap(data => console.log(JSON.stringify(data))),
+      catchError(err => this.handleError)
+    );
+  }
+
   private handleError(err: any) {
     // in a real world app, we may send the server to some remote logging infrastructure
     // instead of just logging it to the console

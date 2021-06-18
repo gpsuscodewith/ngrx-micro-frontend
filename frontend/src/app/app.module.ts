@@ -11,6 +11,8 @@ import { CommunityModule } from './community/community.module';
 import { ShellComponent } from './home/shell/shell.component';
 import { MenuComponent } from './home/menu/menu.component';
 import { WelcomeComponent } from './home/welcome/welcome.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { WelcomeComponent } from './home/welcome/welcome.component';
     AppRoutingModule,
     CatalogModule,
     CommunityModule,
-    UserModule
+    UserModule,
+    NoopAnimationsModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]

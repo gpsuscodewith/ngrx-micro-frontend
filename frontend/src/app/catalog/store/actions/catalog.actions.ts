@@ -24,3 +24,18 @@ export const createComics = createAction(
   '[catalog] Create Comics',
   props<{comics: Comic[]}>()
 );
+
+export const searchComicsSuccess = createAction(
+  '[catalog] Search Comics Success',
+  props<{comics: Comic[]}>()
+)
+
+export const searchComicsFailure = createAction(
+  '[catalog] Search Comics Failure',
+  props<{ error: string  }>()
+)
+
+export const searchComics = createAction(
+  '[catalog] Search Comics',
+  props<{ searchQuery: string }>()
+)
