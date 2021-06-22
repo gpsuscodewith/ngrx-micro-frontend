@@ -23,6 +23,7 @@ export class CatalogListComponentComponent implements OnInit {
 
   ngOnInit(): void {
     this.comics$ = this.store.select(getComics);
+    this.comics$ = this.store.select(getSearchResults);
     this.selectedComic$ = this.store.select(getSelectedComic);
   }
 
@@ -31,7 +32,6 @@ export class CatalogListComponentComponent implements OnInit {
     if (!this.comicSearchInput) {
       this.clearSearch();
     } else {
-      this.comics$ = this.store.select(getSearchResults);
       this.store.dispatch(searchComics({ searchQuery: this.comicSearchInput }));
     }
   }

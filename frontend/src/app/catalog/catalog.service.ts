@@ -23,10 +23,7 @@ export class CatalogService {
   }
 
   getSearchedComics(searchQuery: string): Observable<Comic[]> {
-    // First one is includes (doesn't care about order)
-    // Second one is startsWith (cares about order)
-    //const comics = of(MOCKCOMICS.filter(comic => comic.title.toLowerCase().includes(searchQuery.toLowerCase()) || comic.series.toLowerCase().includes(searchQuery.toLowerCase())));
-    const comics = of(MOCKCOMICS.filter(comic => comic.title.toLowerCase().startsWith(searchQuery.toLowerCase()) || comic.series.toLowerCase().startsWith(searchQuery.toLowerCase())));
+    const comics = of(MOCKCOMICS.filter(comic => comic.title.toLowerCase().includes(searchQuery.toLowerCase()) || comic.series.toLowerCase().includes(searchQuery.toLowerCase())));
     return comics.pipe(
       tap(data => console.log(JSON.stringify(data))),
       catchError(err => this.handleError)
