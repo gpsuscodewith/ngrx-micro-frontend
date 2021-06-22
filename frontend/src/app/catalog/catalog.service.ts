@@ -22,6 +22,14 @@ export class CatalogService {
     );
   }
 
+  getSearchedComics(searchQuery: string): Observable<Comic[]> {
+    const comics = of(MOCKCOMICS.filter(comic => comic.title.toLowerCase().includes(searchQuery.toLowerCase()) || comic.series.toLowerCase().includes(searchQuery.toLowerCase())));
+    return comics.pipe(
+      tap(data => console.log(JSON.stringify(data))),
+      catchError(err => this.handleError)
+    );
+  }
+
   private handleError(err: any) {
     // in a real world app, we may send the server to some remote logging infrastructure
     // instead of just logging it to the console
