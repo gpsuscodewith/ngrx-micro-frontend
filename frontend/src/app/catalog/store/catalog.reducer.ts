@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import { loadComics, createComics, loadComicsSuccess, searchComics, searchComicsSuccess } from './actions/catalog.actions';
+import { loadComics, createComics, loadComicsSuccess, searchComics, searchComicsSuccess, selectComic } from './actions/catalog.actions';
 import { CatalogState, initialState } from './state/catalog.state';
 
 export const catalogReducer = createReducer<CatalogState>(
@@ -31,6 +31,12 @@ export const catalogReducer = createReducer<CatalogState>(
     return {
       ...state,
       comics: action.comics,
+    }
+  }),
+  on(selectComic, (state, action): CatalogState => {
+    return {
+      ...state,
+      currentComicIssueNumber: action.issueNumber,
     }
   }),
 );
