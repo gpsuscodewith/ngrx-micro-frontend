@@ -13,6 +13,7 @@ import { MenuComponent } from './home/menu/menu.component';
 import { WelcomeComponent } from './home/welcome/welcome.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { DashboardComponent } from './home/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     ShellComponent,
     MenuComponent,
     WelcomeComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
