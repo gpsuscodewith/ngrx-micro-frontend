@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CatalogListComponentComponent } from './catalog/catalog-list-component/catalog-list-component.component';
 import { CommunityListComponentComponent } from './community/community-list-component/community-list-component.component';
+import { DashboardComponent } from './home/dashboard/dashboard.component';
 import { ShellComponent } from './home/shell/shell.component';
 import { WelcomeComponent } from './home/welcome/welcome.component';
 import { LoginComponent } from './user/login-component/login.component'
@@ -15,7 +16,8 @@ const routes: Routes = [
       {path: 'catalog', component: CatalogListComponentComponent},
       {path: 'community', component: CommunityListComponentComponent},
       {path: 'login', component: LoginComponent},
-      {path: '', redirectTo: 'welcome', pathMatch: 'full'},
+      {path: 'dashboard', component: DashboardComponent},
+      {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
     ]
   }
 ];

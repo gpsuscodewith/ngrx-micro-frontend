@@ -15,7 +15,7 @@
     <div class="list-group">
       <button class="list-group-item list-group-item-action rounded-0"
               *ngFor="let comic of comics$ | async"
-              (click)="comicSelected(comic)">{{comic.issueNumber}}
+              (click)="comicSelected(comic)">{{comic.title}}
       </button>
     </div>
   </div>

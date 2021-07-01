@@ -39,3 +39,8 @@ export const searchComics = createAction(
   '[catalog] Search Comics',
   props<{ searchQuery: string }>()
 )
+
+export const selectComic = createAction(
+  '[catalog] Select Comic',
+  props<{ issueNumber: string }>()
+)
