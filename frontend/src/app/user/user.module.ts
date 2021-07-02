@@ -13,8 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
     imports: [
       CommonModule,
       HttpClientModule,
-      StoreModule.forRoot(userReducer),
-      EffectsModule.forRoot([])
+      StoreModule.forFeature('users', userReducer)
     ],
     exports: [
       LoginComponent

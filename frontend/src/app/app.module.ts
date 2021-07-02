@@ -28,9 +28,11 @@ import { DashboardComponent } from './home/dashboard/dashboard.component';
     AppRoutingModule,
     CatalogModule,
     CommunityModule,
+    StoreModule.forRoot({}),
     UserModule,
     NoopAnimationsModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    EffectsModule.forRoot([])
   ],
   providers: [],
   bootstrap: [AppComponent]

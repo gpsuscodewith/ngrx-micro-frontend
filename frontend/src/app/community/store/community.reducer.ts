@@ -1,5 +1,5 @@
 import { createReducer, on } from "@ngrx/store";
-import { getCollectors, setCollectors } from "./collector.actions";
+import { getCollectors, setCollectors } from "./community.actions";
 import { CommunityState, initialState } from "./community.state";
 
 export const communityReducer = createReducer<CommunityState>(
