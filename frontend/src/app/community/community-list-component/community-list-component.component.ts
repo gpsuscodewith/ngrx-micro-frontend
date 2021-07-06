@@ -3,7 +3,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Collector } from '../model/collector.model';
 import { ComicInstance } from '../model/comic-instance.model';
-import { CommunityState } from '../store/community.state';
+import { CommunityState } from '../store/state/community.state';
 import { loadCollectors } from '../store/actions/community.actions';
 import { getCollectors } from '../store/community.selectors';
 

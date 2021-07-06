@@ -1,5 +1,5 @@
-import { ComicInstance } from '../model/comic-instance.model';
-import { Collector } from '../model/collector.model';
+import { ComicInstance } from '../../model/comic-instance.model';
+import { Collector } from '../../model/collector.model';
 
 export interface CommunityState {
   currentComicIssue: string | null;

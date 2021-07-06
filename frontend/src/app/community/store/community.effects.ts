@@ -2,8 +2,8 @@ import { mergeMap, map, catchError, concatMap } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Injectable } from '@angular/core';
-import { CommunityService } from '../../community.service'
-import { CommunityActions } from '../actions';
+import { CommunityService } from '../community.service'
+import { CommunityActions } from './actions';
 
 @Injectable()
 export class CommunityEffects {

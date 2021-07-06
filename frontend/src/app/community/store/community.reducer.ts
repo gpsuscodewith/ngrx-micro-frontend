@@ -1,6 +1,6 @@
 import { createReducer, on } from "@ngrx/store";
 import { loadCollectors , loadCollectorsSuccess, loadComicsFailure } from "./actions/community.actions";
-import { CommunityState, initialState } from "./community.state";
+import { CommunityState, initialState } from "./state/community.state";
 
 export const communityReducer = createReducer<CommunityState>(
   initialState,

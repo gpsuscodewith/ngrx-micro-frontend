@@ -1,7 +1,7 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { zip } from 'rxjs';
 import { Collector } from '../model/collector.model';
-import { CommunityState } from './community.state';
+import { CommunityState } from './state/community.state';
 
 const getCommunityFeatureState = createFeatureSelector<CommunityState>("community");
 
