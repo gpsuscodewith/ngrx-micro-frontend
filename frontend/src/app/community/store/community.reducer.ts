@@ -1,15 +1,16 @@
 import { createReducer, on } from "@ngrx/store";
-import { getCollectors, setCollectors } from "./collector.actions";
-import { CommunityState, initialState } from "./community.state";
+import { loadCollectors , loadCollectorsSuccess, loadComicsFailure } from "./actions/community.actions";
+import { CommunityState, initialState } from "./state/community.state";
 
 export const communityReducer = createReducer<CommunityState>(
   initialState,
-  on(getCollectors, (state): CommunityState => {
+  on(loadCollectors, (state): CommunityState => {
+    console.log('Inside reducer with loadCollectors and the state is ' + state);
     return {
       ...state,
     }
   }),
-  on(setCollectors, (state, action): CommunityState => {
+  on(loadCollectorsSuccess, (state, action): CommunityState => {
     return {
       ...state,
       collectors: action.collectors

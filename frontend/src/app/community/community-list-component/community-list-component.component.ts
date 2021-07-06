@@ -1,4 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { Collector } from '../model/collector.model';
+import { ComicInstance } from '../model/comic-instance.model';
+import { CommunityState } from '../store/state/community.state';
+import { loadCollectors } from '../store/actions/community.actions';
+import { getCollectors } from '../store/community.selectors';
 
 @Component({
   selector: 'app-community-list-component',
@@ -7,9 +14,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CommunityListComponentComponent implements OnInit {
 
-  constructor() { }
+  collectors$: Observable<Collector[]>;
+
+  constructor(private store: Store<CommunityState>) {
+    this.store.dispatch(loadCollectors());
+  }
 
   ngOnInit(): void {
+    this.collectors$ = this.store.select(getCollectors);
   }
 
 }
