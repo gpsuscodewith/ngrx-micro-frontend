@@ -1,14 +1,5 @@
 import { Action, props, createAction } from '@ngrx/store';
-import { Collector } from '../model/collector.model';
-
-export const getCollectors = createAction(
-  '[Community] Get Collectors'
-);
-
-export const setCollectors = createAction(
-  '[Community] Set Collectors',
-  props<{collectors: Collector[]}>()
-);
+import { Collector } from '../../model/collector.model';
 
 export const loadCollectors = createAction(
   '[Community] Load Collectors'
@@ -16,7 +7,7 @@ export const loadCollectors = createAction(
 
 export const loadCollectorsSuccess = createAction(
   '[Community] Load Collectors Success',
-  props<{ comics: Collector[] }>()
+  props<{ collectors: Collector[] }>()
 );
 
 export const loadComicsFailure = createAction(

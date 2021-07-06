@@ -19,7 +19,7 @@ export class CommunityService {
     const collectors = of(MOCKCOLLECTORS);
     return collectors.pipe(
       tap(data => console.log(JSON.stringify(data))),
-      catchError(err => this.handleError)
+      catchError(_err => this.handleError)
     );
   }
 
