@@ -16,6 +16,8 @@ export class CommunityListComponentComponent implements OnInit {
 
   collectors$: Observable<Collector[]>;
 
+  @Output() onCollectorSelected = new EventEmitter<string>()
+
   constructor(private store: Store<CommunityState>) {
     this.store.dispatch(loadCollectors());
   }
@@ -24,4 +26,8 @@ export class CommunityListComponentComponent implements OnInit {
     this.collectors$ = this.store.select(getCollectors);
   }
 
+  collectorSelected(collector: Collector): void {
+    console.log('The colector selected was ' + collector.lastName + ', ' + collector.firstName);
+    this.onCollectorSelected.emit(collector.id);
+  }
 }

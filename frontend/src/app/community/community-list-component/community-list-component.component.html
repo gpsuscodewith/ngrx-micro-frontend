@@ -1,1 +1,16 @@
 community-list-component works!
+<div class="card">
+  <div class="card-header">
+    Catalog
+  </div>
+  <div class="card-body"
+       *ngIf="collectors$">
+       <div>This is displaying</div>
+    <div class="list-group">
+      <button class="list-group-item list-group-item-action rounded-0"
+              *ngFor="let collector of collectors$ | async"
+              (click)="collectorSelected(collector)">{{collector.lastName}}, {{collector.firstName}}
+      </button>
+    </div>
+  </div>
+</div>
