@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ChangeDetectionStrategy, Input } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Collector } from '../model/collector.model';
@@ -15,7 +15,7 @@ import { getCollectors } from '../store/community.selectors';
 export class CommunityListComponentComponent implements OnInit {
 
   collectors$: Observable<Collector[]>;
-  selectedComic: string;
+  @Input() selectedComic: string;
 
   @Output() onCollectorSelected = new EventEmitter<string>()
 
