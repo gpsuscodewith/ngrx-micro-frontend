@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CatalogListComponentComponent } from './catalog-list-component.component';
 import { StoreModule } from '@ngrx/store';
+import { catalogReducer } from '../store/catalog.reducer';
 
 describe('CatalogListComponentComponent', () => {
   let component: CatalogListComponentComponent;
@@ -9,7 +10,7 @@ describe('CatalogListComponentComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        StoreModule.forRoot({})
+        StoreModule.forRoot({}),
       ],
       declarations: [ CatalogListComponentComponent ]
     })
