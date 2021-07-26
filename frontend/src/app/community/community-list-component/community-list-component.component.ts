@@ -15,6 +15,7 @@ import { getCollectors } from '../store/community.selectors';
 export class CommunityListComponentComponent implements OnInit {
 
   collectors$: Observable<Collector[]>;
+  selectedComic: string;
 
   @Output() onCollectorSelected = new EventEmitter<string>()
 

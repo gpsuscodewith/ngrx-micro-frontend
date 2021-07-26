@@ -10,6 +10,8 @@ import { UserState } from 'src/app/user/store/user.state';
 })
 export class DashboardComponent implements OnInit {
 
+  selectedComic: string;
+
   constructor(private store: Store<UserState>) { }
 
   ngOnInit(): void {
@@ -17,6 +19,6 @@ export class DashboardComponent implements OnInit {
 
   setSelectedComic(issueNumber: string): void {
     console.log('The issue number is ' + issueNumber);
-    
+    this.selectedComic = issueNumber;
   }
 }
