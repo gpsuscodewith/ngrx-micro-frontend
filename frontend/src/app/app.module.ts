@@ -21,7 +21,7 @@ import { DashboardComponent } from './home/dashboard/dashboard.component';
     ShellComponent,
     MenuComponent,
     WelcomeComponent,
-    DashboardComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

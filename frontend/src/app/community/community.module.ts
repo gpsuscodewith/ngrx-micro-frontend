@@ -2,21 +2,29 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
+import {MatGridListModule} from '@angular/material/grid-list';
 import { communityReducer } from './store/community.reducer';
 import { CommunityListComponentComponent } from './community-list-component/community-list-component.component';
 import { CommunityEffects } from './store/community.effects';
+import { CollectorDetailComponent } from './collector-detail/collector-detail.component';
+import { CommunityGridComponent } from './community-grid/community-grid.component';
 
 @NgModule({
   declarations: [
-    CommunityListComponentComponent
+    CommunityListComponentComponent,
+    CollectorDetailComponent,
+    CommunityGridComponent
   ],
   imports: [
     CommonModule,
     StoreModule.forFeature('community', communityReducer),
-    EffectsModule.forFeature([CommunityEffects])
+    EffectsModule.forFeature([CommunityEffects]),
+    MatGridListModule
   ],
   exports: [
-    CommunityListComponentComponent
+    CommunityListComponentComponent,
+    CollectorDetailComponent,
+    CommunityGridComponent
   ]
 })
 export class CommunityModule { }
