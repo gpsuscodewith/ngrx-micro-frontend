@@ -1,10 +1,10 @@
-import { Component, OnInit, Output, EventEmitter, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ChangeDetectionStrategy, Input, SimpleChanges } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Collector } from '../model/collector.model';
 import { ComicInstance } from '../model/comic-instance.model';
 import { CommunityState } from '../store/state/community.state';
-import { loadCollectors } from '../store/actions/community.actions';
+import { filterCollectorsByComic, loadCollectors } from '../store/actions/community.actions';
 import { getCollectors } from '../store/community.selectors';
 
 @Component({
@@ -27,8 +27,24 @@ export class CommunityListComponentComponent implements OnInit {
     this.collectors$ = this.store.select(getCollectors);
   }
 
+  ngOnChanges(changes: SimpleChanges) {
+    for (const propName in changes) {
+      const chng = changes[propName];
+      const cur  = JSON.stringify(chng.currentValue);
+      const prev = JSON.stringify(chng.previousValue);
+      console.log('The value of cur is ' + cur);
+      console.log('The value of prev is ' + prev);
+
+      if (cur != '') {
+        this.store.dispatch(filterCollectorsByComic({ comic: this.selectedComic }));
+      } else {
+        this.store.dispatch(loadCollectors());
+      }
+    }
+  }
+
   collectorSelected(collector: Collector): void {
-    console.log('The colector selected was ' + collector.lastName + ', ' + collector.firstName);
+    console.log('The collector selected was ' + collector.lastName + ', ' + collector.firstName);
     this.onCollectorSelected.emit(collector.id);
   }
 }
