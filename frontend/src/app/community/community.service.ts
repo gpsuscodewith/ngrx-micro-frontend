@@ -26,8 +26,6 @@ export class CommunityService {
 
   getCollectorsWithComic(comic: string): Observable<Collector[]> {
     console.log('Inside getCollectorsWithComic with a comic of ' + comic);
-
-    //const collectors = of(MOCKCOLLECTORS.filter(collector => collector.instances.filter(instance => instance.issueNumber.toLowerCase().includes(comic.toLowerCase())).length > 0));
     const collectors = of(MOCKCOLLECTORS.filter(collector => collector.instances.some(instance => instance.issueNumber.includes(comic))));
     return collectors.pipe(
       tap(data => console.log(JSON.stringify(data))),
