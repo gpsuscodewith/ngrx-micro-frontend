@@ -17,9 +17,24 @@ export class CommunityEffects {
         mergeMap(() => this.communityService.getCollectors()
           .pipe(
             map(collectors => CommunityActions.loadCollectorsSuccess({collectors})),
-            catchError(error => of(CommunityActions.loadComicsFailure({error})))
+            catchError(error => of(CommunityActions.loadCollectorsFailure({error})))
           )
         )
       );
   });
+
+  filterCollectorsByComic$ = createEffect(() => {
+    console.log('Inside the effects call to filterCollectorsByComic$');
+    return this.actions$
+      .pipe(
+        ofType(CommunityActions.filterCollectorsByComic),
+        mergeMap(action => this.communityService.getCollectorsWithComic(action.comic)
+          .pipe(
+            map(collectors => CommunityActions.filterCollectorsByComicSuccess({collectors})),
+            catchError(error => of(CommunityActions.filterCollectorsByComicFailure({error})))
+          )
+        )
+      );
+  });
+
 }
