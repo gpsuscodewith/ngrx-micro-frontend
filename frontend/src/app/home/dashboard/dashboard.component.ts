@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { CatalogListComponentComponent } from '../../catalog/catalog-list-component/catalog-list-component.component';
 import { UserState } from 'src/app/user/store/user.state';
@@ -10,9 +11,11 @@ import { UserState } from 'src/app/user/store/user.state';
 })
 export class DashboardComponent implements OnInit {
 
+  currentUserId: string;
   selectedComic: string;
+  selectedCollector: string;
 
-  constructor(private store: Store<UserState>) { }
+  constructor(private store: Store<UserState>, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -20,5 +23,11 @@ export class DashboardComponent implements OnInit {
   setSelectedComic(issueNumber: string): void {
     console.log('The issue number is ' + issueNumber);
     this.selectedComic = issueNumber;
+  }
+
+  setSelectedCollector(collectorId: string): void {
+    console.log('The collectorId is ' + collectorId);
+    this.selectedCollector = collectorId;
+    this.router.navigate(['/trade', {proposerId: this.currentUserId, partnerId: this.selectedCollector}]);
   }
 }
