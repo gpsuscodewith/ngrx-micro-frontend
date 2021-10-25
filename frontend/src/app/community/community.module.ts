@@ -9,7 +9,6 @@ import { CommunityEffects } from './store/community.effects';
 import { CollectorDetailComponent } from './collector-detail/collector-detail.component';
 import { CommunityGridComponent } from './community-grid/community-grid.component';
 import { CommunityTradeComponent } from './community-trade/community-trade.component';
-
 @NgModule({
   declarations: [
     CommunityListComponentComponent,
