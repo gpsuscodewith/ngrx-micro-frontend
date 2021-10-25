@@ -21,6 +21,5 @@ export const communityReducer = createReducer<CommunityState>(
       ...state,
       collectors: action.collectors
     }
-
   })
 );
