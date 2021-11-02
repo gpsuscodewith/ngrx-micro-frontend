@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule  } from '@angular/common';
 import { StoreModule } from '@ngrx/store';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EffectsModule } from '@ngrx/effects';
 import { LoginComponent } from './login-component/login.component';
 import { userReducer } from './store/user.reducer';
@@ -13,6 +14,8 @@ import { HttpClientModule } from '@angular/common/http';
     imports: [
       CommonModule,
       HttpClientModule,
+      FormsModule,
+      ReactiveFormsModule,
       StoreModule.forFeature('users', userReducer)
     ],
     exports: [
