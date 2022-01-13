@@ -1,5 +1,5 @@
 import { createReducer, on } from "@ngrx/store";
-import { loadCollectors , loadCollectorsSuccess, loadCollectorsFailure, filterCollectorsByComicSuccess } from "./actions/community.actions";
+import { loadCollectors , loadCollectorsSuccess, loadCollectorsFailure, filterCollectorsByComicSuccess, loadProposerId, loadPartnerId } from "./actions/community.actions";
 import { CommunityState, initialState } from "./state/community.state";
 
 export const communityReducer = createReducer<CommunityState>(
@@ -21,5 +21,18 @@ export const communityReducer = createReducer<CommunityState>(
       ...state,
       collectors: action.collectors
     }
-  })
+  }),
+  on(loadProposerId, (state, action): CommunityState => {
+    return {
+      ...state,
+      tradeProposerId: action.proposerId
+    }
+  }),
+  on(loadPartnerId, (state, action): CommunityState => {
+    return {
+      ...state,
+      tradePartnerId: action.partnerId
+    }
+  }),
 );
+
