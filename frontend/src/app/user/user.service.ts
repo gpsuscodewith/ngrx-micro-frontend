@@ -23,6 +23,7 @@ export class UserService {
   }
 
   getUserFromUsername(userName: string): Observable<User> {
+    console.log('Inside getUserFromUsername with an input of ' + userName);
     const user = of(MOCKUSERS.find(user => user.userName === userName));
     return user.pipe(
       tap(data => console.log(JSON.stringify(data))),

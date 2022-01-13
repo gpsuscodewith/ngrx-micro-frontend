@@ -14,6 +14,7 @@ import { WelcomeComponent } from './home/welcome/welcome.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { DashboardComponent } from './home/dashboard/dashboard.component';
+import { appReducer } from './store/app.reducer';
 
 @NgModule({
   declarations: [
@@ -28,10 +29,10 @@ import { DashboardComponent } from './home/dashboard/dashboard.component';
     AppRoutingModule,
     CatalogModule,
     CommunityModule,
-    StoreModule.forRoot({}),
     UserModule,
     NoopAnimationsModule,
     MatFormFieldModule,
+    StoreModule.forRoot(appReducer),
     EffectsModule.forRoot([])
   ],
   providers: [],

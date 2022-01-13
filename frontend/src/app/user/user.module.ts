@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EffectsModule } from '@ngrx/effects';
 import { LoginComponent } from './login-component/login.component';
 import { userReducer } from './store/user.reducer';
+import { UserEffects } from './store/user.effect';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -16,7 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
       HttpClientModule,
       FormsModule,
       ReactiveFormsModule,
-      StoreModule.forFeature('users', userReducer)
+      StoreModule.forFeature('users', userReducer),
+      EffectsModule.forFeature([UserEffects]),
     ],
     exports: [
       LoginComponent

@@ -5,6 +5,7 @@ import { getCurrentUser, loadUsersSuccess, findByUsernameSuccess } from './actio
 export const userReducer = createReducer<UserState>(
     initialState,
     on(getCurrentUser, (state, action): UserState => {
+      console.log('Inside getCurrentUser');
         return {
           ...state
         }
@@ -16,6 +17,7 @@ export const userReducer = createReducer<UserState>(
           }
     }),
     on(findByUsernameSuccess, (state, action): UserState => {
+        console.log('Inside findByUsernameSuccess');
           return {
             ...state,
             currentUser: action.user

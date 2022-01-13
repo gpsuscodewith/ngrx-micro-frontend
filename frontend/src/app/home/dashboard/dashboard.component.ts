@@ -38,5 +38,6 @@ export class DashboardComponent implements OnInit {
 
   setLoggedInUser(userId: string): void {
     console.log('The logged in user id is ' + userId);
+    this.currentUserId = userId;
   }
 }
