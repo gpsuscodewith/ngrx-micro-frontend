@@ -1,5 +1,5 @@
 <app-menu></app-menu>
 
 <div class='container main-content'>
-  <router-outlet></router-outlet>
+  <router-outlet (activate)="subscribeToEmitter($event)"></router-outlet>
 </div>

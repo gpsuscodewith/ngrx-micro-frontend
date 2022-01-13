@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/store/state/app.state';
+import { getIsLoggedInSel } from 'src/app/store/app.selectors';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-menu',
@@ -7,13 +11,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
   isLoggedIn:boolean;
-  constructor() { 
+  isloggedIn$: Observable<boolean>;
+
+  constructor(private store: Store<AppState>) {
     this.isLoggedIn = false;
   }
 
   ngOnInit(): void {
+    this.isloggedIn$ = this.store.select(getIsLoggedInSel);
   }
-  
+
   logOut(): void {
     this.isLoggedIn = false;
   }

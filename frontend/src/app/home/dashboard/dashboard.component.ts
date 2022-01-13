@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { CatalogListComponentComponent } from '../../catalog/catalog-list-component/catalog-list-component.component';
 import { UserState } from 'src/app/user/store/user.state';
@@ -15,7 +15,12 @@ export class DashboardComponent implements OnInit {
   selectedComic: string;
   selectedCollector: string;
 
-  constructor(private store: Store<UserState>, private router: Router) { }
+  constructor(
+    private store: Store<UserState>,
+    private router: Router,
+    private activedRoute: ActivatedRoute) {
+
+    }
 
   ngOnInit(): void {
   }
@@ -29,5 +34,11 @@ export class DashboardComponent implements OnInit {
     console.log('The collectorId is ' + collectorId);
     this.selectedCollector = collectorId;
     this.router.navigate(['/trade', {proposerId: this.currentUserId, partnerId: this.selectedCollector}]);
+  }
+
+  setLoggedInUser(userId: string): void {
+    console.log('The logged in user id is ' + userId);
+    this.currentUserId = userId;
+    console.log('this.currentUserId has been set to ' + this.currentUserId);
   }
 }
