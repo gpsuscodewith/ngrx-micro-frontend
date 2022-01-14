@@ -61,7 +61,7 @@ export class LoginComponent implements OnInit {
     this.store.dispatch(findUserByUsername({ userName: this.submittedUsername }));
     this.selectedUser$.subscribe(user => {
       console.log('Inside this.selectedUser$.subscribe with the value of ' + user);
-      this.onUserLogin.emit(user.id);
+      this.onUserLogin.emit(user.collectorId);
       console.log("emitting loginEvent");
       this.loginEvent.emit();
     });

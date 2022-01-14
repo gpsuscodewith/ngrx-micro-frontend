@@ -27,22 +27,27 @@ export const getCollectorThatHasIssue = createSelector(
 
 export const getCurrentTradeProposer = createSelector(
   getCommunityFeatureState,
-  state => state.tradeProposerId
+  state => {
+    console.log('Inside getCurrentTradeProposer selector with a tradeProposerId of ' + state.tradeProposerId);
+    let proposer = state.collectors.find(x => x.id === state.tradeProposerId);
+    console.log('The value of proposer inside getCurrentTradeProposer is ' + proposer);
+    return proposer;
+  }
 );
 
 export const getComicsForTradeProposer = createSelector(
   getCommunityFeatureState,
   getCurrentTradeProposer,
-  (state, proposerId) => state.collectors.find(x => x.id === proposerId).instances
+  (state, proposer) => proposer.instances
 );
 
 export const getCurrentTradePartner = createSelector(
   getCommunityFeatureState,
-  state => state.tradePartnerId
+  state => state.collectors.find(x => x.id === state.tradePartnerId)
 );
 
 export const getComicsForTradePartner = createSelector(
   getCommunityFeatureState,
   getCurrentTradePartner,
-  (state, partnerId) => state.collectors.find(x => x.id === partnerId).instances
+  (state, partner) => partner.instances
 );

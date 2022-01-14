@@ -1,1 +1,15 @@
 <p>community-trade works!</p>
+<div class="card">
+  <div class="card-header">
+    Community
+  </div>
+  <div class="card-body"
+       *ngIf="proposerComics$">
+    <div class="list-group">
+      <button class="list-group-item list-group-item-action rounded-0"
+              *ngFor="let comicInstance of proposerComics$ | async"
+              (click)="proposerInstanceSelected(comicInstance)">{{comicInstance.issueNumber}}, {{comicInstance.condition}}
+      </button>
+    </div>
+  </div>
+</div>

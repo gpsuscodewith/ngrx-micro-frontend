@@ -1,5 +1,4 @@
 import { Action, props, createAction } from '@ngrx/store';
-import { create } from 'domain';
 //import { create } from 'domain';
 import { Collector } from '../../model/collector.model';
 
@@ -22,12 +21,12 @@ export const filterCollectorById = createAction(
   props<{ collectorId: string  }>()
 );
 
-export const loadProposerId = createAction(
+export const loadProposer = createAction(
   '[Community] Load Proposer Id ',
   props< { proposerId: string }>()
 );
 
-export const loadPartnerId = createAction(
+export const loadPartner = createAction(
   '[Community] Load Partner Id ',
   props< { partnerId: string }>()
 );
