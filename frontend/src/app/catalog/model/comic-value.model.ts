@@ -1,4 +1,5 @@
 export class ComicValue {
   condition!: string;
-  values: ComicValue[] = [];
+  issueNumber: string;
+  value: number;
 }

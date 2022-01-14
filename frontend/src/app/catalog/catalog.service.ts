@@ -2,10 +2,12 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable, of, throwError } from 'rxjs';
-import { catchError, tap, map } from 'rxjs/operators';
+import { catchError, tap, map, filter } from 'rxjs/operators';
 
 import { Comic } from './model/comic.model';
 import { MOCKCOMICS } from './model/mock-comics.model';
+import { ComicValue } from './model/comic-value.model';
+import { MOCK_COMIC_VALUES } from './model/mock-comic-value.model';
 
 @Injectable({
   providedIn: 'root',
@@ -25,6 +27,24 @@ export class CatalogService {
   getSearchedComics(searchQuery: string): Observable<Comic[]> {
     const comics = of(MOCKCOMICS.filter(comic => comic.title.toLowerCase().includes(searchQuery.toLowerCase()) || comic.series.toLowerCase().includes(searchQuery.toLowerCase())));
     return comics.pipe(
+      tap(data => console.log(JSON.stringify(data))),
+      catchError(err => this.handleError)
+    );
+  }
+
+  getComicValues(): Observable<ComicValue[]> {
+    const comicValues = of(MOCK_COMIC_VALUES);
+    return comicValues.pipe(
+      tap(data => console.log(JSON.stringify(data))),
+      catchError(err => this.handleError)
+    );
+  }
+
+  getComicValue(issueNumber: string, condition: string): Observable<ComicValue> {
+    const comicValues = of(MOCK_COMIC_VALUES.find(
+      comicValue => comicValue.condition.toLowerCase().includes(condition.toLowerCase())
+        && comicValue.issueNumber.toLowerCase().includes(issueNumber.toLowerCase())));
+    return comicValues.pipe(
       tap(data => console.log(JSON.stringify(data))),
       catchError(err => this.handleError)
     );
