@@ -29,7 +29,10 @@ export const getCurrentTradeProposer = createSelector(
   getCommunityFeatureState,
   state => {
     console.log('Inside getCurrentTradeProposer selector with a tradeProposerId of ' + state.tradeProposerId);
+<<<<<<< HEAD
     console.log('The length of state.collectors is ' + state.collectors.length);
+=======
+>>>>>>> main
     let proposer = state.collectors.find(x => x.id === state.tradeProposerId);
     console.log('The value of proposer inside getCurrentTradeProposer is ' + proposer);
     return proposer;
