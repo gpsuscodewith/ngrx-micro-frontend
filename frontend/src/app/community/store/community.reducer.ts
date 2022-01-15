@@ -1,3 +1,4 @@
+import { Actions } from "@ngrx/effects";
 import { createReducer, on } from "@ngrx/store";
 import { loadCollectors , loadCollectorsSuccess, loadCollectorsFailure, filterCollectorsByComicSuccess, loadProposer, loadPartner } from "./actions/community.actions";
 import { CommunityState, initialState } from "./state/community.state";
@@ -11,6 +12,7 @@ export const communityReducer = createReducer<CommunityState>(
     }
   }),
   on(loadCollectorsSuccess, (state, action): CommunityState => {
+    console.log('Inside reducer loadCollectorsSuccess with a an action.collectors length of ' + action.collectors.length);
     return {
       ...state,
       collectors: action.collectors

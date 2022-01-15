@@ -12,4 +12,7 @@
       </button>
     </div>
   </div>
+  <div *ngIf="proposer$">
+    {{ (proposer$ | async).firstName}}
+  </div>
 </div>

@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { CommunityState } from '../store/state/community.state';
 import { Comic } from 'src/app/catalog/model/comic.model';
-import { loadPartner, loadProposer } from '../store/actions/community.actions';
+import { loadCollectors, loadPartner, loadProposer } from '../store/actions/community.actions';
 import { getComicsForTradePartner, getComicsForTradeProposer, getCurrentTradePartner, getCurrentTradeProposer } from '../store/community.selectors';
 import { ComicInstance } from '../model/comic-instance.model';
 import { Collector } from '../model/collector.model';
@@ -37,6 +37,8 @@ export class CommunityTradeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.store.dispatch(loadCollectors());
+    
     this.partnerId = this.route.snapshot.paramMap.get('partnerId');
     this.proposerId = this.route.snapshot.paramMap.get('proposerId');
     console.log('this.partnerId - ' + this.partnerId);
