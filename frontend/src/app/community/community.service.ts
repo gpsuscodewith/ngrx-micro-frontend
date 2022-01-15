@@ -16,6 +16,7 @@ export class CommunityService {
   constructor(httpClient: HttpClient) {}
 
   getCollectors(): Observable<Collector[]> {
+    console.log('Inside getCollectors() call of the CommunityService with a length of ' + MOCKCOLLECTORS.length);
     const collectors = of(MOCKCOLLECTORS);
     return collectors.pipe(
       tap(data => console.log(JSON.stringify(data))),
