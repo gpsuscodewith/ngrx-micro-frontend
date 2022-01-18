@@ -3,16 +3,34 @@
   <div class="card-header">
     Community
   </div>
-  <div class="card-body"
+  <div class="col-6">
+    <div class="card-body"
        *ngIf="proposerComics$">
-    <div class="list-group">
-      <button class="list-group-item list-group-item-action rounded-0"
-              *ngFor="let comicInstance of proposerComics$ | async"
-              (click)="proposerInstanceSelected(comicInstance)">{{comicInstance.issueNumber}}, {{comicInstance.condition}}
-      </button>
-    </div>
+      <div class="list-group">
+        <button class="list-group-item list-group-item-action rounded-0"
+                *ngFor="let comicInstance of proposerComics$ | async"
+                (click)="proposerInstanceSelected(comicInstance)">{{comicInstance.issueNumber}}, {{comicInstance.condition}}
+        </button>
+      </div>
   </div>
+  <div class="card-body"
+  *ngIf="partnerComics$">
+ <div class="list-group">
+   <button class="list-group-item list-group-item-action rounded-0"
+           *ngFor="let comicInstance of partnerComics$ | async"
+           (click)="proposerInstanceSelected(comicInstance)">{{comicInstance.issueNumber}}, {{comicInstance.condition}}
+   </button>
+ </div>
+</div>
+
+
+  </div>
+
   <div *ngIf="proposer$">
     {{ (proposer$ | async).firstName}}
+  </div>
+  <mat-divider vertical="true"></mat-divider>
+  <div>
+    test test test
   </div>
 </div>

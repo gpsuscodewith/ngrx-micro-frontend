@@ -26,13 +26,16 @@ export class CommunityTradeComponent implements OnInit {
   proposer$: Observable<Collector>;
   partner$: Observable<Collector>;
 
-
   constructor(
     private route: ActivatedRoute,
     private store: Store<CommunityState>) {
   }
 
   proposerInstanceSelected(comicInstance: ComicInstance): void {
+    console.log('The instance was selected ' + comicInstance.issueNumber);
+  }
+
+  partnerInstanceSelected(comicInstance: ComicInstance): void {
     console.log('The instance was selected ' + comicInstance.issueNumber);
   }
 
