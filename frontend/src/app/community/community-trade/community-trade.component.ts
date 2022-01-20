@@ -9,6 +9,7 @@ import { getComicsForTradePartner, getComicsForTradeProposer, getCurrentTradePar
 import { ComicInstance } from '../model/comic-instance.model';
 import { Collector } from '../model/collector.model';
 import { switchMap } from 'rxjs/operators';
+import { MatSelectionListChange } from '@angular/material/list';
 
 @Component({
   selector: 'app-community-trade',
@@ -33,11 +34,18 @@ export class CommunityTradeComponent implements OnInit {
 
   proposerInstanceSelected(comicInstance: ComicInstance): void {
     console.log('The instance was selected ' + comicInstance.issueNumber);
-    
   }
 
   partnerInstanceSelected(comicInstance: ComicInstance): void {
     console.log('The instance was selected ' + comicInstance.issueNumber);
+  }
+
+  onProposerComicChange(change: MatSelectionListChange): void {
+    console.log(change.option.value, change.option.selected);
+  }
+
+  onPartnerComicChange(change: MatSelectionListChange): void {
+    console.log(change.option.value, change.option.selected);
   }
 
   ngOnInit(): void {

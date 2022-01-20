@@ -3,25 +3,30 @@
 <mat-grid-list cols="2" rowHeight="2:1">
   <mat-grid-tile>
     <div *ngIf="proposerComics$">
-      <mat-selection-list #proposerSelected>
-        <mat-list-option *ngFor="let comicInstance of proposerComics$ | async">
+      <mat-selection-list
+        id="proposerSelectionList"
+        name="proposerSelectionList"
+        (selectionChange)="onProposerComicChange($event)"
+        #proposerSelected>
+        <mat-list-option *ngFor="let comicInstance of proposerComics$ | async" [value]="comicInstance">
           {{comicInstance.title}} - {{comicInstance.condition}}
         </mat-list-option>
       </mat-selection-list>
     </div>
   </mat-grid-tile>
   <mat-grid-tile>
-    <div
-  *ngIf="partnerComics$">
- <div class="list-group">
-   <button class="list-group-item list-group-item-action rounded-0"
-           *ngFor="let comicInstance of partnerComics$ | async"
-           (click)="proposerInstanceSelected(comicInstance)">{{comicInstance.title}} - {{comicInstance.condition}}
-   </button>
- </div>
-</div>
+    <div *ngIf="partnerComics$">
+      <mat-selection-list
+        id="partnerSelectionList"
+        name="partnerSelectionList"
+        (selectionChange)="onPartnerComicChange($event)"
+        #partnerSelected>
+        <mat-list-option *ngFor="let comicInstance of partnerComics$ | async" [value]="comicInstance">
+          {{comicInstance.title}} - {{comicInstance.condition}}
+        </mat-list-option>
+      </mat-selection-list>
+    </div>
   </mat-grid-tile>
-
 </mat-grid-list>
   <div *ngIf="proposer$">
     {{ (proposer$ | async).firstName}}
