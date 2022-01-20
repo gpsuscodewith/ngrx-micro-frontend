@@ -1,8 +1,10 @@
-<p>community-trade works!</p>
 <div>
-<mat-grid-list cols="2" rowHeight="2:1">
+<mat-grid-list cols="2" rowHeight="4:1">
   <mat-grid-tile>
     <div *ngIf="proposerComics$">
+      <div *ngIf="proposer$">
+        {{ (proposer$ | async).firstName}}
+      </div>
       <mat-selection-list
         id="proposerSelectionList"
         name="proposerSelectionList"
@@ -16,6 +18,9 @@
   </mat-grid-tile>
   <mat-grid-tile>
     <div *ngIf="partnerComics$">
+      <div *ngIf="partner$">
+        {{ (partner$ | async).firstName}}
+      </div>
       <mat-selection-list
         id="partnerSelectionList"
         name="partnerSelectionList"
@@ -28,7 +33,5 @@
     </div>
   </mat-grid-tile>
 </mat-grid-list>
-  <div *ngIf="proposer$">
-    {{ (proposer$ | async).firstName}}
-  </div>
+
 </div>
