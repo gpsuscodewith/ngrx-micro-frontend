@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -33,6 +33,7 @@ export class CommunityTradeComponent implements OnInit {
 
   proposerInstanceSelected(comicInstance: ComicInstance): void {
     console.log('The instance was selected ' + comicInstance.issueNumber);
+    
   }
 
   partnerInstanceSelected(comicInstance: ComicInstance): void {

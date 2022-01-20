@@ -1,36 +1,38 @@
 <p>community-trade works!</p>
-<div class="card">
-  <div class="card-header">
-    Community
-  </div>
-  <div class="col-6">
-    <div class="card-body"
+<div>
+<mat-grid-list cols="2" rowHeight="2:1">
+  <mat-grid-tile>
+    <div *ngIf="proposerComics$">
+      <mat-selection-list #proposerSelected>
+        <mat-list-option *ngFor="let comicInstance of proposerComics$ | async">
+          {{comicInstance.title}} - {{comicInstance.condition}}
+        </mat-list-option>
+      </mat-selection-list>
+    </div>
+    <div
        *ngIf="proposerComics$">
       <div class="list-group">
         <button class="list-group-item list-group-item-action rounded-0"
                 *ngFor="let comicInstance of proposerComics$ | async"
-                (click)="proposerInstanceSelected(comicInstance)">{{comicInstance.issueNumber}}, {{comicInstance.condition}}
+                (click)="proposerInstanceSelected(comicInstance)">{{comicInstance.title}} - {{comicInstance.condition}}
         </button>
       </div>
-  </div>
-  <div class="card-body"
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <div
   *ngIf="partnerComics$">
  <div class="list-group">
    <button class="list-group-item list-group-item-action rounded-0"
            *ngFor="let comicInstance of partnerComics$ | async"
-           (click)="proposerInstanceSelected(comicInstance)">{{comicInstance.issueNumber}}, {{comicInstance.condition}}
+           (click)="proposerInstanceSelected(comicInstance)">{{comicInstance.title}} - {{comicInstance.condition}}
    </button>
  </div>
 </div>
+  </mat-grid-tile>
 
-
-  </div>
-
+</mat-grid-list>
   <div *ngIf="proposer$">
     {{ (proposer$ | async).firstName}}
-  </div>
-  <mat-divider vertical="true"></mat-divider>
-  <div>
-    test test test
   </div>
 </div>

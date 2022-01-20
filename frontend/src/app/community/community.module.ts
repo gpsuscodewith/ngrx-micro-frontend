@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { MatGridListModule } from '@angular/material/grid-list';
+import {MatListModule} from '@angular/material/list';
 import { MatDividerModule } from '@angular/material/divider';
 import { communityReducer } from './store/community.reducer';
 import { CommunityListComponentComponent } from './community-list-component/community-list-component.component';
@@ -22,7 +23,8 @@ import { CommunityTradeComponent } from './community-trade/community-trade.compo
     StoreModule.forFeature('community', communityReducer),
     EffectsModule.forFeature([CommunityEffects]),
     MatGridListModule,
-    MatDividerModule
+    MatDividerModule,
+    MatListModule
   ],
   exports: [
     CommunityListComponentComponent,
