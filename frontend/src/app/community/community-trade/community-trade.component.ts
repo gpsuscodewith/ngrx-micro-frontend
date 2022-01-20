@@ -1,18 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { CommunityState } from '../store/state/community.state';
 import { Comic } from 'src/app/catalog/model/comic.model';
-<<<<<<< HEAD
 import { loadCollectors, loadPartner, loadProposer } from '../store/actions/community.actions';
-=======
-import { loadPartner, loadProposer } from '../store/actions/community.actions';
->>>>>>> main
 import { getComicsForTradePartner, getComicsForTradeProposer, getCurrentTradePartner, getCurrentTradeProposer } from '../store/community.selectors';
 import { ComicInstance } from '../model/comic-instance.model';
 import { Collector } from '../model/collector.model';
 import { switchMap } from 'rxjs/operators';
+import { MatSelectionListChange } from '@angular/material/list';
 
 @Component({
   selector: 'app-community-trade',
@@ -30,7 +27,6 @@ export class CommunityTradeComponent implements OnInit {
   proposer$: Observable<Collector>;
   partner$: Observable<Collector>;
 
-
   constructor(
     private route: ActivatedRoute,
     private store: Store<CommunityState>) {
@@ -38,6 +34,18 @@ export class CommunityTradeComponent implements OnInit {
 
   proposerInstanceSelected(comicInstance: ComicInstance): void {
     console.log('The instance was selected ' + comicInstance.issueNumber);
+  }
+
+  partnerInstanceSelected(comicInstance: ComicInstance): void {
+    console.log('The instance was selected ' + comicInstance.issueNumber);
+  }
+
+  onProposerComicChange(change: MatSelectionListChange): void {
+    console.log(change.option.value, change.option.selected);
+  }
+
+  onPartnerComicChange(change: MatSelectionListChange): void {
+    console.log(change.option.value, change.option.selected);
   }
 
   ngOnInit(): void {

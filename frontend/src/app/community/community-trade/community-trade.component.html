@@ -1,21 +1,37 @@
-<p>community-trade works!</p>
-<div class="card">
-  <div class="card-header">
-    Community
-  </div>
-  <div class="card-body"
-       *ngIf="proposerComics$">
-    <div class="list-group">
-      <button class="list-group-item list-group-item-action rounded-0"
-              *ngFor="let comicInstance of proposerComics$ | async"
-              (click)="proposerInstanceSelected(comicInstance)">{{comicInstance.issueNumber}}, {{comicInstance.condition}}
-      </button>
+<div>
+<mat-grid-list cols="2" rowHeight="4:1">
+  <mat-grid-tile>
+    <div *ngIf="proposerComics$">
+      <div *ngIf="proposer$">
+        {{ (proposer$ | async).firstName}}
+      </div>
+      <mat-selection-list
+        id="proposerSelectionList"
+        name="proposerSelectionList"
+        (selectionChange)="onProposerComicChange($event)"
+        #proposerSelected>
+        <mat-list-option *ngFor="let comicInstance of proposerComics$ | async" [value]="comicInstance">
+          {{comicInstance.title}} - {{comicInstance.condition}}
+        </mat-list-option>
+      </mat-selection-list>
     </div>
-  </div>
-<<<<<<< HEAD
-  <div *ngIf="proposer$">
-    {{ (proposer$ | async).firstName}}
-  </div>
-=======
->>>>>>> main
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <div *ngIf="partnerComics$">
+      <div *ngIf="partner$">
+        {{ (partner$ | async).firstName}}
+      </div>
+      <mat-selection-list
+        id="partnerSelectionList"
+        name="partnerSelectionList"
+        (selectionChange)="onPartnerComicChange($event)"
+        #partnerSelected>
+        <mat-list-option *ngFor="let comicInstance of partnerComics$ | async" [value]="comicInstance">
+          {{comicInstance.title}} - {{comicInstance.condition}}
+        </mat-list-option>
+      </mat-selection-list>
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>
+
 </div>
