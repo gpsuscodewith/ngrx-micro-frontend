@@ -9,15 +9,6 @@
         </mat-list-option>
       </mat-selection-list>
     </div>
-    <div
-       *ngIf="proposerComics$">
-      <div class="list-group">
-        <button class="list-group-item list-group-item-action rounded-0"
-                *ngFor="let comicInstance of proposerComics$ | async"
-                (click)="proposerInstanceSelected(comicInstance)">{{comicInstance.title}} - {{comicInstance.condition}}
-        </button>
-      </div>
-    </div>
   </mat-grid-tile>
   <mat-grid-tile>
     <div
