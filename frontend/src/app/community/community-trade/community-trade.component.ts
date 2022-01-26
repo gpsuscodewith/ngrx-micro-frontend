@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -10,6 +10,8 @@ import { ComicInstance } from '../model/comic-instance.model';
 import { Collector } from '../model/collector.model';
 import { switchMap } from 'rxjs/operators';
 import { MatSelectionListChange } from '@angular/material/list';
+import { ComicSelectionChangeEventArgs } from '../model/comic-selected-event-args';
+//import { EventEmitter } from 'stream';
 
 @Component({
   selector: 'app-community-trade',
@@ -27,6 +29,9 @@ export class CommunityTradeComponent implements OnInit {
   proposer$: Observable<Collector>;
   partner$: Observable<Collector>;
 
+  @Output() partnerComicSelectionChanged: EventEmitter<ComicSelectionChangeEventArgs> = new EventEmitter();
+  @Output() proposerComicSelectionChanged: EventEmitter<ComicSelectionChangeEventArgs> = new EventEmitter();
+
   constructor(
     private route: ActivatedRoute,
     private store: Store<CommunityState>) {
@@ -42,10 +47,22 @@ export class CommunityTradeComponent implements OnInit {
 
   onProposerComicChange(change: MatSelectionListChange): void {
     console.log(change.option.value, change.option.selected);
+    this.proposerComicSelectionChanged.emit(this.getComicSelectionChangeEventArgs(change));
   }
 
   onPartnerComicChange(change: MatSelectionListChange): void {
     console.log(change.option.value, change.option.selected);
+    this.partnerComicSelectionChanged.emit(this.getComicSelectionChangeEventArgs(change));
+  }
+
+  getComicSelectionChangeEventArgs(matSelection: MatSelectionListChange): ComicSelectionChangeEventArgs {
+    let comicSelectionChanged: ComicSelectionChangeEventArgs = {
+      issueNumber: matSelection.option.value.issueNumber,
+      condition: matSelection.option.value.condition,
+      isSelected: matSelection.option.selected
+    };
+
+    return comicSelectionChanged;
   }
 
   ngOnInit(): void {
