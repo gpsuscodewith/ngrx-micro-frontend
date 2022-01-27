@@ -20,8 +20,11 @@ import { ComicSelectionChangeEventArgs } from '../model/comic-selected-event-arg
 })
 export class CommunityTradeComponent implements OnInit {
 
-  proposerId: string;
-  partnerId: string;
+  @Input() proposerId: string;
+  @Input() partnerId: string;
+
+  @Output() partnerComicSelectionChanged: EventEmitter<ComicSelectionChangeEventArgs> = new EventEmitter();
+  @Output() proposerComicSelectionChanged: EventEmitter<ComicSelectionChangeEventArgs> = new EventEmitter();
 
   proposerComics$: Observable<ComicInstance[]>;
   partnerComics$: Observable<ComicInstance[]>;
@@ -29,8 +32,6 @@ export class CommunityTradeComponent implements OnInit {
   proposer$: Observable<Collector>;
   partner$: Observable<Collector>;
 
-  @Output() partnerComicSelectionChanged: EventEmitter<ComicSelectionChangeEventArgs> = new EventEmitter();
-  @Output() proposerComicSelectionChanged: EventEmitter<ComicSelectionChangeEventArgs> = new EventEmitter();
 
   constructor(
     private route: ActivatedRoute,
@@ -47,12 +48,16 @@ export class CommunityTradeComponent implements OnInit {
 
   onProposerComicChange(change: MatSelectionListChange): void {
     console.log(change.option.value, change.option.selected);
-    this.proposerComicSelectionChanged.emit(this.getComicSelectionChangeEventArgs(change));
+    let eventArgs = this.getComicSelectionChangeEventArgs(change);
+    console.log(`Got events args prior to emitting proposerComicSelectionChanged events - ${eventArgs}`);
+    this.proposerComicSelectionChanged.emit(eventArgs);
   }
 
   onPartnerComicChange(change: MatSelectionListChange): void {
     console.log(change.option.value, change.option.selected);
-    this.partnerComicSelectionChanged.emit(this.getComicSelectionChangeEventArgs(change));
+    let eventArgs = this.getComicSelectionChangeEventArgs(change);
+    console.log(`Got events args prior to emitting partnerComicSelectionChanged events - ${eventArgs}`);
+    this.partnerComicSelectionChanged.emit(eventArgs);
   }
 
   getComicSelectionChangeEventArgs(matSelection: MatSelectionListChange): ComicSelectionChangeEventArgs {
@@ -68,8 +73,8 @@ export class CommunityTradeComponent implements OnInit {
   ngOnInit(): void {
     this.store.dispatch(loadCollectors());
 
-    this.partnerId = this.route.snapshot.paramMap.get('partnerId');
-    this.proposerId = this.route.snapshot.paramMap.get('proposerId');
+   // this.partnerId = this.route.snapshot.paramMap.get('partnerId');
+   // this.proposerId = this.route.snapshot.paramMap.get('proposerId');
     console.log('this.partnerId - ' + this.partnerId);
     console.log('this.proposerId - ' + this.proposerId);
 

@@ -1,4 +1,5 @@
 import { Action, createAction, props } from '@ngrx/store';
+import { ComicValue } from '../../model/comic-value.model';
 import { Comic } from '../../model/comic.model';
 
 export const loadComicsSuccess = createAction(
@@ -13,6 +14,20 @@ export const loadComicsFailure = createAction(
 
 export const loadComics = createAction(
   '[catalog] Load Comics'
+);
+
+export const loadComicValues = createAction(
+  '[catalog] Load Comic Values'
+);
+
+export const loadComicValuesSuccess = createAction(
+  '[Catalog] Load Comic Values Success',
+  props<{ comicValues: ComicValue[] }>()
+);
+
+export const loadComicValuesFailure = createAction(
+  '[Catalog] Load Comic Values Failure',
+  props<{ error: string  }>()
 );
 
 export const createComic = createAction(

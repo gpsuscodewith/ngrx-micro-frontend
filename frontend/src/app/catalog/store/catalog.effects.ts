@@ -23,6 +23,20 @@ export class CatalogEffects {
       );
   });
 
+  loadComicValues$ = createEffect(() => {
+    console.log('Inside the effects call to loadComicValues$');
+    return this.actions$
+      .pipe(
+        ofType(CatalogActions.loadComicValues),
+        mergeMap(() => this.catalogService.getComicValues()
+          .pipe(
+            map(comicValues => CatalogActions.loadComicValuesSuccess({comicValues})),
+            catchError(error => of(CatalogActions.loadComicValuesFailure({error})))
+          )
+        )
+      );
+  });
+
   searchComics$ = createEffect(() => {
     console.log('Inside the effects call to loadComics$');
     return this.actions$

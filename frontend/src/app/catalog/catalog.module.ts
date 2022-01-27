@@ -10,11 +10,13 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button'
 import { FormsModule } from '@angular/forms';
+import { CatalogValuesComponent } from './catalog-values/catalog-values.component';
 
 
 @NgModule({
   declarations: [
-    CatalogListComponentComponent
+    CatalogListComponentComponent,
+    CatalogValuesComponent
   ],
   imports: [
     CommonModule,
@@ -30,7 +32,8 @@ import { FormsModule } from '@angular/forms';
     CatalogEffects
   ],
   exports: [
-    CatalogListComponentComponent
+    CatalogListComponentComponent,
+    CatalogValuesComponent
   ]
 })
 export class CatalogModule { }

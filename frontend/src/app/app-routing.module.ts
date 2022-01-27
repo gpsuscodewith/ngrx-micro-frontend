@@ -5,6 +5,7 @@ import { CommunityListComponentComponent } from './community/community-list-comp
 import { CommunityTradeComponent } from './community/community-trade/community-trade.component';
 import { DashboardComponent } from './home/dashboard/dashboard.component';
 import { ShellComponent } from './home/shell/shell.component';
+import { TradeComponent } from './home/trade/trade.component';
 import { WelcomeComponent } from './home/welcome/welcome.component';
 import { LoginComponent } from './user/login-component/login.component'
 
@@ -18,7 +19,7 @@ const routes: Routes = [
       {path: 'community', component: CommunityListComponentComponent},
       {path: 'login', component: LoginComponent},
       {path: 'dashboard', component: DashboardComponent},
-      {path: 'trade', component: CommunityTradeComponent},
+      {path: 'trade', component: TradeComponent},
       {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
     ]
   }

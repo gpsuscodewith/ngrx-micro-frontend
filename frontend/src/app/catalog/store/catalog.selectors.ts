@@ -12,6 +12,13 @@ export const getComics = createSelector(
   }
 );
 
+export const getComicValues = createSelector(
+  getCatalogFeatureState,
+  state => {
+    return state.comicValues;
+  }
+);
+
 export const getSearchResults = createSelector(
   getCatalogFeatureState,
   state => {

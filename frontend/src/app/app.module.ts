@@ -13,8 +13,12 @@ import { MenuComponent } from './home/menu/menu.component';
 import { WelcomeComponent } from './home/welcome/welcome.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatGridListModule } from '@angular/material/grid-list';
+import {MatListModule} from '@angular/material/list';
+import { MatDividerModule } from '@angular/material/divider';
 import { DashboardComponent } from './home/dashboard/dashboard.component';
 import { appReducer } from './store/app.reducer';
+import { TradeComponent } from './home/trade/trade.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +26,8 @@ import { appReducer } from './store/app.reducer';
     ShellComponent,
     MenuComponent,
     WelcomeComponent,
-    DashboardComponent
+    DashboardComponent,
+    TradeComponent
   ],
   imports: [
     BrowserModule,
@@ -32,6 +37,9 @@ import { appReducer } from './store/app.reducer';
     UserModule,
     NoopAnimationsModule,
     MatFormFieldModule,
+    MatGridListModule,
+    MatDividerModule,
+    MatListModule,
     StoreModule.forRoot(appReducer),
     EffectsModule.forRoot([])
   ],

@@ -29,7 +29,8 @@ import { CommunityTradeComponent } from './community-trade/community-trade.compo
   exports: [
     CommunityListComponentComponent,
     CollectorDetailComponent,
-    CommunityGridComponent
+    CommunityGridComponent,
+    CommunityTradeComponent
   ]
 })
 export class CommunityModule { }

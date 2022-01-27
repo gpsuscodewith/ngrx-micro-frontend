@@ -1,0 +1,23 @@
+<div>
+  <app-community-trade
+  [partnerId]="partnerId"
+  [proposerId]="proposerId"
+  (partnerComicSelectionChanged)="onPartnerComicSelectionChanged($event)"
+  (proposerComicSelectionChanged)="onProposerComicSelectionChanged($event)">
+</app-community-trade>
+</div>
+<div>
+  <mat-grid-list cols="2" rowHeight="3:1">
+  <mat-grid-tile>
+    <app-catalog-values [comicValuesInput]="proposerSelections"></app-catalog-values>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <app-catalog-values [comicValuesInput]="partnerSelections"></app-catalog-values>
+  </mat-grid-tile>
+</mat-grid-list>
+</div>
+
+
+
+
+
